@@ -5,6 +5,10 @@
   <title>Title</title>
 </head>
 <body>
-<h1>Hello, Thymeleaf!</h1>
+<div th:object="${user}">
+  <h1 >안녕, <span th:text="*{username}"></span>!</h1>
+  <h2>당신의 이메일은 <span th:text="*{email}"></span></h2>
+</div>
+
 </body>
 </html>
