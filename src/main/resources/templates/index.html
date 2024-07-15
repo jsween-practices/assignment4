@@ -8,6 +8,12 @@
 <div th:object="${user}">
   <h1 >안녕, <span th:text="*{username}"></span>!</h1>
   <h2>당신의 이메일은 <span th:text="*{email}"></span></h2>
+  <a th:if="*{isAdmin}">
+    관리자 메뉴
+  </a>
+  <a th:unless="*{isAdmin}">
+    일반 사용자 메뉴
+  </a>
 </div>
 
 </body>
