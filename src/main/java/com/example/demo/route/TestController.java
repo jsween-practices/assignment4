@@ -1,4 +1,4 @@
-package com.example.demo.api.route;
+package com.example.demo.route;
 
 import com.example.demo.domain.Product;
 import com.example.demo.domain.User;
