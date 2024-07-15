@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class BookService {
   private final List<Book> books = new ArrayList<>();
-  private AtomicLong idGenerator = new AtomicLong(0);
+  private final AtomicLong idGenerator = new AtomicLong(0);
   public List<Book> findAll() {
     return books;
   }
