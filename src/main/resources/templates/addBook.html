@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<table>
+  <tr th:each="book: ${books}" th:object="${book}">
+    <td th:text="*{id}"></td>
+    <td th:text="*{title}"></td>
+    <td th:text="*{author}"></td>
+    <td th:text="*{publicationYear}"></td>
+  </tr>
+</table>
+
+<form th:action="@{/books}" method="post">
+  <div>
+    <label for="title">제목</label>
+    <input type="text" id="title" name="title"/>
+  </div>
+  <div>
+    <label for="author">작가</label>
+    <input type="text" id="author" name="author"/>
+  </div>
+  <div>
+    <label for="publicationYear">출간연도</label>
+    <input type="number" id="publicationYear" name="publicationYear"/>
+  </div>
+  <button type="submit">저장</button>
+</form>
+</body>
+</html>
