@@ -1,6 +1,6 @@
 package com.example.demo.route;
 
-import com.example.demo.domain.BookService;
+import com.example.demo.domain.book.BookService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
