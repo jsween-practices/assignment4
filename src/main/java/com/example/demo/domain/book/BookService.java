@@ -7,21 +7,21 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class BookService {
-  private final List<Book> books = new ArrayList<>();
+  private final List<BookEntity> books = new ArrayList<>();
   private final AtomicLong idGenerator = new AtomicLong(0);
   public List<Book> findAll() {
-    return books;
+    return books.stream().map(BookEntity::toDomain).toList();
   }
 
   public void create(CreateBook book) {
-    books.add(new Book(idGenerator.incrementAndGet(), book));
+    books.add(new BookEntity(idGenerator.incrementAndGet(), book));
   }
   public void delete(long id) {
     Book byId = getById(id);
-    books.remove(byId);
+    books.remove(BookEntity.fromDomain(byId));
   }
   public Book getById(long id) {
-    return books.stream().filter(b->b.id()==id).findFirst().orElseThrow(IllegalArgumentException::new);
+    return books.stream().filter(b->b.id()==id).findFirst().orElseThrow(IllegalArgumentException::new).toDomain();
   }
 
   public void modify(long id, ModifyBook modifyBook) {

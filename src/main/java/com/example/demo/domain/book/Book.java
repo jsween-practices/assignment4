@@ -11,8 +11,7 @@ public final class Book {
     private int publicationYear;
     private final ZonedDateTime createdAt;
 
-    private Book(Long id, String title, String author, int publicationYear,
-        ZonedDateTime createdAt) {
+    Book(Long id, String title, String author, int publicationYear, ZonedDateTime createdAt) {
         this.id = id;
         this.title = title;
         this.author = author;
@@ -21,13 +20,14 @@ public final class Book {
     }
 
     public Book(long id, CreateBook createBook) {
-      this(id, createBook.title(), createBook.author(), createBook.publicationYear(), ZonedDateTime.now());
+        this(id, createBook.title(), createBook.author(), createBook.publicationYear(),
+            ZonedDateTime.now());
     }
 
     public void modify(ModifyBook modifyBook) {
-      title= modifyBook.title();
-      author= modifyBook.author();
-      publicationYear= modifyBook.publicationYear();
+        title = modifyBook.title();
+        author = modifyBook.author();
+        publicationYear = modifyBook.publicationYear();
     }
 
     public Long id() {
@@ -59,11 +59,10 @@ public final class Book {
             return false;
         }
         var that = (Book) obj;
-        return Objects.equals(this.id, that.id) &&
-            Objects.equals(this.title, that.title) &&
-            Objects.equals(this.author, that.author) &&
-            this.publicationYear == that.publicationYear &&
-            Objects.equals(this.createdAt, that.createdAt);
+        return Objects.equals(this.id, that.id) && Objects.equals(this.title, that.title)
+            && Objects.equals(this.author, that.author)
+            && this.publicationYear == that.publicationYear && Objects.equals(this.createdAt,
+            that.createdAt);
     }
 
     @Override
@@ -73,12 +72,8 @@ public final class Book {
 
     @Override
     public String toString() {
-        return "Book[" +
-            "id=" + id + ", " +
-            "title=" + title + ", " +
-            "author=" + author + ", " +
-            "publicationYear=" + publicationYear + ", " +
-            "createdAt=" + createdAt + ']';
+        return "Book[" + "id=" + id + ", " + "title=" + title + ", " + "author=" + author + ", "
+            + "publicationYear=" + publicationYear + ", " + "createdAt=" + createdAt + ']';
     }
 
 }
